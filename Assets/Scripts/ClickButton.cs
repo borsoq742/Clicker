@@ -77,7 +77,6 @@ public class ClickButton : MonoBehaviour
         if (pause)
         {
             PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
-
         }
     }
 #else
@@ -95,7 +94,10 @@ public class ClickButton : MonoBehaviour
 
     void Update()
     {
-        moneyText.text = money.ToString();
+        if (moneyText != null)
+        {
+            moneyText.text = money.ToString();
+        }
         upgradeClickMoney = PlayerPrefs.GetInt("upgradeClickMoney");
     }
 }

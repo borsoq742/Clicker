@@ -13,9 +13,8 @@ public class backToMainMenuShop : MonoBehaviour
     public Text upgradeClick;
     public void Update()
     {
-       
         moneyText.text = money.ToString();
-        upgradeClick.text = upgradeClickMoney.ToString("За клик " +upgradeClickMoney);
+        upgradeClick.text = "За клик " + upgradeClickMoney;
     }
     private void Start()
     {
