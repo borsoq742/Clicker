@@ -9,7 +9,21 @@ public class AchieveButton : MonoBehaviour
 
     private Button button;
     private Image image;
-
+    private Color color;
+    private int money;
+    private int upgradeClickMoney;
+    private int playerPrefsAchColor=0;
+    
+    void Start()
+    {
+        ColorUtility.TryParseHtmlString("#09FF0064", out color);
+        
+    }
+    private void Update()
+    {
+      PlayerPrefs.GetInt("money", money);
+        PlayerPrefs.GetInt("upgradeClickMoney", upgradeClickMoney);
+    }
     private void Awake()
     {
         button = GetComponent<Button>();
@@ -19,12 +33,29 @@ public class AchieveButton : MonoBehaviour
 
     private void OnAchieveButtonClick()
     {
-        Debug.Log(achieveType);
-        image.color = Color.blue;
+        if (achieveType == EAchieveType.clickCountOneHundredThousand &&money<=100000)
+        {
+            image.color = color;
+           
+        }
+        else if (achieveType == EAchieveType.clickCountOneMil && money <= 1000000)
+        {
+            image.color = color;
+        }
+        else if(achieveType==EAchieveType.upgradingClickToThousand&& upgradeClickMoney>=1000)
+        {
+            image.color = color;
+        }
+        else
+        {
+            Debug.Log("аыаа");
+        }
+        
     }
 
     private void OnDestroy()
     {
+       
         button.onClick.RemoveAllListeners(); // Отписать всех подписчиков с кнопки, если не отписываться, могут быть баги
     }
 }

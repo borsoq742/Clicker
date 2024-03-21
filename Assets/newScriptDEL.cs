@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Music : MonoBehaviour
+public class newScriptDEL : MonoBehaviour
 {
-    private static Music intance;
-    private void Awake()
+
+    public  newScriptDEL intance;
+    public AudioSource audioPirat;
+
+    public void Awake()
     {
+        audioPirat = GetComponent<AudioSource>();
         if (intance != null)
             Destroy(gameObject);
         else
@@ -14,7 +18,7 @@ public class Music : MonoBehaviour
             intance = this;
             DontDestroyOnLoad(transform.gameObject);
         }
-        
-        
+
     }
+    
 }

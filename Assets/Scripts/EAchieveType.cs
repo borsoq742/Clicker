@@ -1,6 +1,10 @@
 
 public enum EAchieveType
 {
-    clickCount,
-    playTime
+    clickCountOneHundredThousand,
+    clickCountOneMil,
+    upgradingClickToThousand,
+    autoMoneyAddition,
+    unknownAch
+
 }

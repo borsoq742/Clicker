@@ -15,6 +15,7 @@ public class backToMainMenuShop : MonoBehaviour
     {
         moneyText.text = money.ToString();
         upgradeClick.text = "За клик " + upgradeClickMoney;
+        PlayerPrefs.SetInt("upgradeClickMoney", upgradeClickMoney);
     }
     private void Start()
     {
